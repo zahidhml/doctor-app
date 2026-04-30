@@ -103,7 +103,7 @@ export default function BookingModal({ onClose, onAuthNeeded, prefill }) {
           <div>
             {[
               { key: 'name',  label: 'Full Name',    type: 'text',  ph: 'e.g. Ahmed Khan' },
-              { key: 'phone', label: 'Phone Number', type: 'tel',   ph: '03XX-XXXXXXX' },
+              { key: 'phone', label: 'Phone Number', type: 'tel',   ph: '0345-XXXXXXX' },
               { key: 'cnic',  label: 'CNIC Number',  type: 'text',  ph: '12345-1234567-1' },
             ].map(f => (
               <div key={f.key} style={{ marginBottom: 16 }}>

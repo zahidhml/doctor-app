@@ -264,9 +264,9 @@ function PrescriptionTab({ prefillPatient, clearPrefill }) {
   const removeMed = (i) => setForm(f => ({ ...f, medicines: f.medicines.filter((_, j) => j !== i) }));
 
   const rxData = {
-    doctorName: 'Dr. Khalid Mehmood Shah',
-    credentials: 'MBBS · FCPS Neurology · Senior Consultant',
-    clinic: 'NeuroCore Neurology Clinic',
+    doctorName: 'Dr. Tabraiz Wali Shah',
+    credentials: 'MBBS (KMC) · FCPS Neurosurgery · Consultant Neurosurgeon',
+    clinic: 'NeuroCore Neurosurgery Clinic',
     patientName: form.patientName,
     patientId: form.patientId,
     diagnosis: form.diagnosis,
@@ -292,9 +292,9 @@ function PrescriptionTab({ prefillPatient, clearPrefill }) {
         <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
           <div style={{ width: 56, height: 56, borderRadius: '50%', background: 'rgba(13,148,136,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 26 }}>👨‍⚕️</div>
           <div>
-            <div style={{ fontFamily: "'DM Serif Display',serif", color: '#fff', fontSize: 20 }}>Dr. Khalid Mehmood Shah</div>
-            <div style={{ color: '#0D9488', fontSize: 13, marginTop: 2 }}>MBBS · FCPS Neurology · Senior Consultant</div>
-            <div style={{ color: '#64748B', fontSize: 12, marginTop: 2 }}>NeuroCore Neurology Clinic | PMC Reg. No: 2009-11432</div>
+            <div style={{ fontFamily: "'DM Serif Display',serif", color: '#fff', fontSize: 20 }}>Dr. Tabraiz Wali Shah</div>
+            <div style={{ color: '#0D9488', fontSize: 13, marginTop: 2 }}>MBBS (KMC) · FCPS Neurosurgery · Consultant Neurosurgeon</div>
+            <div style={{ color: '#64748B', fontSize: 12, marginTop: 2 }}>NeuroCore Neurosurgery Clinic</div>
           </div>
         </div>
       </div>
@@ -459,7 +459,7 @@ export default function AdminDashboard() {
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             fontSize: 28, boxShadow: '0 0 0 3px rgba(217,119,6,0.3)',
           }}>👨‍⚕️</div>
-          <div style={{ color: '#fff', fontWeight: 700, fontSize: 13 }}>Dr. Khalid M. Shah</div>
+          <div style={{ color: '#fff', fontWeight: 700, fontSize: 13 }}>Dr. Tabraiz W. Shah</div>
           <div style={{ color: '#D97706', fontSize: 11, marginTop: 2, fontWeight: 600 }}>Super Admin</div>
         </div>
 

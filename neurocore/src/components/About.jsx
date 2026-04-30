@@ -1,7 +1,7 @@
 const qualifications = [
-  { icon: '🎓', label: 'MBBS', detail: 'Khyber Medical College, Peshawar' },
-  { icon: '🏅', label: 'FCPS Neurology', detail: 'College of Physicians & Surgeons Pakistan' },
-  { icon: '📅', label: '15+ Years Experience', detail: 'Specialist in Brain & Nervous System Disorders' },
+  { icon: '🎓', label: 'MBBS (KMC)', detail: 'Khyber Medical College, Peshawar' },
+  { icon: '🏅', label: 'FCPS Neurosurgery', detail: 'College of Physicians & Surgeons Pakistan' },
+  { icon: '📅', label: 'Extensive Experience', detail: 'Senior Registrar at HMC' },
   { icon: '📍', label: '2 Locations', detail: 'Peshawar (Main) · Chitral (Visiting)' },
 ];
 
@@ -18,7 +18,7 @@ export default function About() {
             <span style={{ color: '#0D9488', fontSize: 12, fontWeight: 700, letterSpacing: 1 }}>MEET THE DOCTOR</span>
           </div>
           <h2 style={{ fontFamily: "'DM Serif Display',serif", fontSize: 38, color: '#0B1D3A' }}>
-            About Dr. Khalid Mehmood Shah
+            About Dr. Tabraiz Wali Shah
           </h2>
         </div>
 
@@ -33,9 +33,9 @@ export default function About() {
             }}>👨‍⚕️</div>
 
             <h3 style={{ fontFamily: "'DM Serif Display',serif", color: '#fff', fontSize: 22, marginBottom: 6 }}>
-              Dr. Khalid Mehmood Shah
+              Dr. Tabraiz Wali Shah
             </h3>
-            <p style={{ color: '#0D9488', fontSize: 14, marginBottom: 20 }}>MBBS · FCPS (Neurology)</p>
+            <p style={{ color: '#0D9488', fontSize: 14, marginBottom: 20 }}>MBBS (KMC) · FCPS (Neurosurgery)</p>
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginTop: 12 }}>
               {[
@@ -71,17 +71,10 @@ export default function About() {
           {/* Right — Bio + qualifications */}
           <div>
             <p style={{ color: '#475569', fontSize: 15, lineHeight: 1.8, marginBottom: 20 }}>
-              Dr. Khalid Mehmood Shah is a highly accomplished Senior Consultant Neurologist 
-              with over 15 years of dedicated clinical experience in managing complex neurological 
-              disorders. He completed his MBBS from Khyber Medical College and subsequently 
-              earned his FCPS in Neurology from the College of Physicians and Surgeons Pakistan.
+              Dr. Tabraiz Wali Shah is a highly skilled Neurosurgeon and currently serves as a Senior Registrar at Hayatabad Medical Complex (HMC) in Peshawar. He completed his MBBS from Khyber Medical College (KMC) and earned his FCPS in Neurosurgery, dedicating his career to advancing brain and spine surgical care.
             </p>
             <p style={{ color: '#475569', fontSize: 15, lineHeight: 1.8, marginBottom: 32 }}>
-              His expertise spans a wide range of neurological conditions including epilepsy, 
-              stroke, migraines, movement disorders, and neurodegenerative diseases. 
-              Dr. Shah holds a deep commitment to patient-centered care and is known for his 
-              compassionate approach, combining cutting-edge medical knowledge with a thorough 
-              understanding of his patients' needs across both urban and rural communities.
+              Specializing in complex neurosurgical procedures, Dr. Tabraiz provides comprehensive treatment for brain tumors, spinal trauma, and other nervous system disorders. He maintains regular clinics in Peshawar and also offers visiting consultations in Chitral twice a month, ensuring specialized neurosurgical care is accessible across the region.
             </p>
 
             {/* Qualification boxes */}

@@ -1,10 +1,10 @@
 const services = [
-  { icon: '🧠', title: 'Migraine Treatment', desc: 'Advanced diagnosis and management of chronic migraines, cluster headaches, and tension-type headaches with personalized treatment plans.' },
-  { icon: '⚡', title: 'Epilepsy Care', desc: 'Comprehensive seizure management including EEG evaluation, medication optimization, and long-term monitoring for epilepsy patients.' },
-  { icon: '🫀', title: 'Stroke Management', desc: 'Rapid assessment and treatment of ischemic and hemorrhagic strokes, plus post-stroke rehabilitation and recurrence prevention.' },
-  { icon: '🔬', title: 'Nerve Disorders', desc: 'Diagnosis and treatment of peripheral neuropathy, Guillain-Barré syndrome, and other nerve conduction disorders.' },
-  { icon: '😴', title: 'Sleep Disorders', desc: 'Evaluation of sleep apnea, insomnia, narcolepsy, and restless leg syndrome using advanced sleep study protocols.' },
-  { icon: '🩺', title: 'Memory & Cognition', desc: 'Assessment and management of Alzheimer\'s disease, dementia, mild cognitive impairment, and other memory-related conditions.' },
+  { icon: '🧠', title: 'Brain Tumor Surgery', desc: 'Expert surgical management of benign and malignant brain tumors using advanced microsurgical and neuro-navigational techniques.' },
+  { icon: '🦴', title: 'Spine Surgery', desc: 'Specialized treatment for spinal disorders, including herniated discs, spinal stenosis, spinal trauma, and spinal tumors.' },
+  { icon: '⚡', title: 'Neurotrauma Care', desc: 'Emergency and specialized care for traumatic brain injuries (TBI) and spinal cord injuries (SCI).' },
+  { icon: '🔬', title: 'Microsurgery', desc: 'Highly precise surgical procedures using specialized microscopes to treat vascular malformations and complex nerve disorders.' },
+  { icon: '👶', title: 'Pediatric Neurosurgery', desc: 'Surgical care for children with congenital neurological conditions, hydrocephalus, and other childhood brain and spine disorders.' },
+  { icon: '🩺', title: 'Functional Neurosurgery', desc: 'Surgical interventions for movement disorders, chronic pain, and epilepsy through advanced surgical protocols.' },
 ];
 
 export default function Services() {
@@ -20,7 +20,7 @@ export default function Services() {
             <span style={{ color: '#0D9488', fontSize: 12, fontWeight: 700, letterSpacing: 1 }}>WHAT WE OFFER</span>
           </div>
           <h2 style={{ fontFamily: "'DM Serif Display',serif", fontSize: 38, color: '#0B1D3A', marginBottom: 12 }}>
-            Neurological Services
+            Neurosurgical Services
           </h2>
           <p style={{ color: '#64748B', fontSize: 16, maxWidth: 520, margin: '0 auto', lineHeight: 1.7 }}>
             Specialized care for all conditions affecting the brain, spine, and nervous system

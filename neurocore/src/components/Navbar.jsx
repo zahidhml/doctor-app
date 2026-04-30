@@ -39,7 +39,7 @@ export default function Navbar({ onBook, onLogin }) {
           }}>🧠</div>
           <div>
             <div style={{ color: '#fff', fontWeight: 700, fontSize: 15, fontFamily: "'Plus Jakarta Sans',sans-serif", lineHeight: 1.2 }}>NeuroCore</div>
-            <div style={{ color: '#0D9488', fontSize: 10, fontFamily: "'Plus Jakarta Sans',sans-serif", fontWeight: 500 }}>Neurology Clinic</div>
+            <div style={{ color: '#0D9488', fontSize: 10, fontFamily: "'Plus Jakarta Sans',sans-serif", fontWeight: 500 }}>Neurosurgery Clinic</div>
           </div>
         </div>
 

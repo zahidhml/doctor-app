@@ -13,12 +13,11 @@ export default function Footer() {
               }}>🧠</div>
               <div>
                 <div style={{ color: '#fff', fontWeight: 700, fontSize: 15 }}>NeuroCore</div>
-                <div style={{ color: '#0D9488', fontSize: 11 }}>Neurology Clinic</div>
+                <div style={{ color: '#0D9488', fontSize: 11 }}>Neurosurgery Clinic</div>
               </div>
             </div>
-            <p style={{ color: '#475569', fontSize: 13, lineHeight: 1.7, maxWidth: 280 }}>
-              Expert neurological care in Peshawar & Chitral. Providing compassionate, 
-              evidence-based treatment for over 15 years.
+              Expert neurosurgical care in Peshawar & Chitral. Providing compassionate, 
+              evidence-based treatment for brain and spine disorders.
             </p>
           </div>
 
@@ -42,9 +41,9 @@ export default function Footer() {
           <div>
             <div style={{ color: '#fff', fontWeight: 700, fontSize: 14, marginBottom: 16 }}>Contact</div>
             {[
-              { icon: '📍', val: 'Hayatabad, Peshawar' },
-              { icon: '📞', val: '+92-91-5701234' },
-              { icon: '💬', val: 'WhatsApp Available' },
+              { icon: '📍', val: 'Hayatabad Medical Complex, Peshawar' },
+              { icon: '📞', val: '0345-0526102' },
+              { icon: '✉️', val: 'tabraizshaa@gmail.com' },
               { icon: '🕐', val: 'Mon–Sat: By Schedule' },
             ].map(c => (
               <div key={c.icon} style={{ display: 'flex', gap: 8, marginBottom: 10, color: '#64748B', fontSize: 13 }}>
@@ -60,10 +59,10 @@ export default function Footer() {
           display: 'flex', justifyContent: 'space-between', alignItems: 'center',
         }}>
           <span style={{ color: '#334155', fontSize: 13 }}>
-            © 2026 NeuroCore Neurology Clinic. All rights reserved.
+            © 2026 NeuroCore Neurosurgery Clinic. All rights reserved.
           </span>
           <span style={{ color: '#334155', fontSize: 13 }}>
-            Dr. Khalid Mehmood Shah · PMC Reg. No: 2009-11432
+            Dr. Tabraiz Wali Shah · MBBS (KMC), FCPS (Neurosurgery)
           </span>
         </div>
       </div>

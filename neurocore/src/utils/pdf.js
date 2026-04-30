@@ -12,19 +12,19 @@ export const generatePrescriptionPDF = ({ doctorName, credentials, clinic, patie
   doc.setTextColor(255, 255, 255);
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(18);
-  doc.text(doctorName || 'Dr. Khalid Mehmood Shah', margin, 18);
+  doc.text(doctorName || 'Dr. Tabraiz Wali Shah', margin, 18);
 
   // Credentials
   doc.setFontSize(10);
   doc.setFont('helvetica', 'normal');
   doc.setTextColor(204, 251, 241);
-  doc.text(credentials || 'MBBS · FCPS Neurology · Senior Consultant', margin, 27);
+  doc.text(credentials || 'MBBS (KMC) · FCPS Neurosurgery · Consultant Neurosurgeon', margin, 27);
 
   // Clinic
   doc.setTextColor(255, 255, 255);
   doc.setFontSize(9);
-  doc.text(clinic || 'NeuroCore Neurology Clinic | Peshawar & Chitral', margin, 36);
-  doc.text('📞 +92-91-5701234  |  Reg. No: PMC-2009-11432', margin, 43);
+  doc.text(clinic || 'NeuroCore Neurosurgery Clinic | Peshawar & Chitral', margin, 36);
+  doc.text('📞 0345-0526102', margin, 43);
 
   // Divider
   doc.setDrawColor(13, 148, 136);
@@ -95,14 +95,14 @@ export const generatePrescriptionPDF = ({ doctorName, credentials, clinic, patie
   doc.setFontSize(8);
   doc.setTextColor(148, 163, 184);
   doc.text('This prescription is digitally generated. Keep it safe for future reference.', W / 2, 285, { align: 'center' });
-  doc.text('NeuroCore Neurology Clinic © 2026', W / 2, 291, { align: 'center' });
+  doc.text('NeuroCore Neurosurgery Clinic © 2026', W / 2, 291, { align: 'center' });
 
   doc.save(`Prescription_${patientName || 'Patient'}_${Date.now()}.pdf`);
 };
 
 export const whatsAppPrescription = ({ patientName, diagnosis, medicines, instructions, phone }) => {
   const medList = (medicines || []).filter(m => m.trim()).map((m, i) => `${i + 1}. ${m}`).join('\n');
-  const text = `🏥 *NeuroCore Neurology Clinic*\n👨‍⚕️ *Dr. Khalid Mehmood Shah*\nMBBS · FCPS Neurology\n\n📋 *PRESCRIPTION*\n\n👤 Patient: ${patientName}\n🔬 Diagnosis: ${diagnosis}\n\n💊 *Medicines:*\n${medList}\n\n📝 *Instructions:*\n${instructions || '—'}\n\n_Please follow the prescribed medicines as directed._`;
+  const text = `🏥 *NeuroCore Neurosurgery Clinic*\n👨‍⚕️ *Dr. Tabraiz Wali Shah*\nMBBS (KMC) · FCPS Neurosurgery\n\n📋 *PRESCRIPTION*\n\n👤 Patient: ${patientName}\n🔬 Diagnosis: ${diagnosis}\n\n💊 *Medicines:*\n${medList}\n\n📝 *Instructions:*\n${instructions || '—'}\n\n_Please follow the prescribed medicines as directed._`;
   const num = (phone || '923451234567').replace(/\D/g, '');
   window.open(`https://wa.me/${num}?text=${encodeURIComponent(text)}`, '_blank');
 };

@@ -34,32 +34,19 @@ export default function Hero({ onBook }) {
               borderRadius: 20, padding: '6px 14px', marginBottom: 20,
             }}>
               <span style={{ color: '#0D9488', fontSize: 12, fontWeight: 700, letterSpacing: 0.5 }}>
-                MBBS · FCPS Neurology · 15+ Years Experience
+                MBBS (KMC) · FCPS (Neurosurgery) · Brain & Spine Surgeon
               </span>
             </div>
 
             {/* Doctor name */}
-            <h1 style={{
-              fontFamily: "'DM Serif Display', serif",
-              fontSize: 'clamp(2.2rem, 4vw, 3.4rem)',
-              color: '#ffffff', lineHeight: 1.15, marginBottom: 12,
-            }}>
-              Dr. Khalid<br />Mehmood Shah
+              Dr. Tabraiz<br />Wali Shah
             </h1>
 
             {/* Subtitle */}
-            <p style={{
-              fontFamily: "'DM Serif Display', serif",
-              fontSize: 20, color: '#0D9488', fontStyle: 'italic', marginBottom: 18,
-            }}>
-              Senior Consultant Neurologist
+              Consultant Neurosurgeon
             </p>
 
-            {/* Description */}
-            <p style={{ color: '#94A3B8', fontSize: 15, lineHeight: 1.75, marginBottom: 24, maxWidth: 480 }}>
-              Providing compassionate, evidence-based neurological care with over 15 years of 
-              experience in treating complex brain and nervous system disorders. Committed to 
-              improving the quality of life for patients across KPK.
+              Providing compassionate, evidence-based neurosurgical care. Specialized in treating complex brain and spine disorders. Currently serving as a Senior Registrar at Hayatabad Medical Complex (HMC) and offering visiting clinics in Chitral.
             </p>
 
             {/* Location chips */}
@@ -116,9 +103,9 @@ export default function Hero({ onBook }) {
                 fontSize: 52, boxShadow: '0 0 0 4px rgba(13,148,136,0.3), 0 0 0 8px rgba(13,148,136,0.1)',
               }}>👨‍⚕️</div>
               <div style={{ color: '#fff', fontWeight: 700, fontSize: 16, fontFamily: "'DM Serif Display',serif" }}>
-                Dr. Khalid M. Shah
+                Dr. Tabraiz W. Shah
               </div>
-              <div style={{ color: '#0D9488', fontSize: 13, marginTop: 4 }}>Consultant Neurologist</div>
+              <div style={{ color: '#0D9488', fontSize: 13, marginTop: 4 }}>Consultant Neurosurgeon</div>
               <div style={{ display: 'flex', justifyContent: 'center', gap: 6, marginTop: 12 }}>
                 {['PMC Reg.', 'FCPS', 'PMA'].map(tag => (
                   <span key={tag} style={{

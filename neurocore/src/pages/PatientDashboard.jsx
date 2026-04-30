@@ -33,7 +33,7 @@ export default function PatientDashboard({ session, setSession }) {
     addAppointment({
       city: bookForm.city, date: bookForm.date, slot: bookForm.slot,
       patientId: session.id, patientName: session.name, phone: session.phone,
-      doctor: 'Dr. Khalid M. Shah',
+      doctor: 'Dr. Tabraiz Wali Shah',
     });
     alert('Appointment booked successfully!');
     setBookForm({ city: '', date: today, slot: '' });
@@ -62,7 +62,7 @@ export default function PatientDashboard({ session, setSession }) {
             <div style={{ fontSize: 22 }}>🧠</div>
             <div>
               <div style={{ color: '#fff', fontWeight: 700, fontSize: 13 }}>NeuroCore</div>
-              <div style={{ color: '#0D9488', fontSize: 10 }}>Patient Portal</div>
+              <div style={{ color: '#0D9488', fontSize: 10 }}>Neurosurgery Portal</div>
             </div>
           </div>
         </div>
@@ -126,7 +126,7 @@ export default function PatientDashboard({ session, setSession }) {
                 <div key={m.label} className="card" style={{ padding: 20 }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                     <div>
-                      <div style={{ color: '#64748B', fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: 0.5 }}>{m.label}</div>
+                      <div style={{ color: '#0D9488', fontSize: 10, fontFamily: "'Plus Jakarta Sans',sans-serif", fontWeight: 500 }}>Neurosurgery Clinic</div>
                       <div style={{ fontSize: 32, fontWeight: 700, color: '#0B1D3A', marginTop: 4 }}>{m.val}</div>
                     </div>
                     <div style={{ width: 40, height: 40, borderRadius: 10, background: m.color, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18 }}>{m.icon}</div>
@@ -180,7 +180,7 @@ export default function PatientDashboard({ session, setSession }) {
         {tab === 'prescriptions' && (
           <div>
             <h1 style={{ fontFamily: "'DM Serif Display',serif", fontSize: 28, color: '#0B1D3A', marginBottom: 6 }}>Prescriptions</h1>
-            <p style={{ color: '#64748B', fontSize: 14, marginBottom: 28 }}>Your prescription history from Dr. Khalid M. Shah</p>
+            <p style={{ color: '#64748B', fontSize: 14, marginBottom: 28 }}>Your prescription history from Dr. Tabraiz Wali Shah</p>
 
             {allRx.length === 0 ? (
               <div className="card" style={{ padding: 48, textAlign: 'center', color: '#94A3B8' }}>
@@ -273,7 +273,7 @@ export default function PatientDashboard({ session, setSession }) {
                 { icon: '🪪', label: 'CNIC',     val: session.cnic },
                 { icon: '📍', label: 'City',     val: session.city || 'Not set' },
                 { icon: '🩸', label: 'Blood Group', val: session.bloodGroup || 'Not set' },
-                { icon: '👨‍⚕️', label: 'Doctor', val: 'Dr. Khalid M. Shah' },
+                { icon: '👨‍⚕️', label: 'Doctor', val: 'Dr. Tabraiz Wali Shah' },
               ].map(row => (
                 <div key={row.label} style={{
                   display: 'flex', alignItems: 'center', gap: 14, padding: '14px 0',

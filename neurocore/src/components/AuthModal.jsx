@@ -38,7 +38,7 @@ export default function AuthModal({ onClose, pendingAppt, setSession: updateSess
         patientId: user.id,
         patientName: user.name,
         phone: user.phone,
-        doctor: 'Dr. Khalid M. Shah',
+        doctor: 'Dr. Tabraiz Wali Shah',
       });
     }
     setSession(user);
@@ -87,7 +87,7 @@ export default function AuthModal({ onClose, pendingAppt, setSession: updateSess
             {[
               { k: 'name',     label: 'Full Name',    type: 'text', ph: 'Ahmed Khan' },
               { k: 'cnic',     label: 'CNIC Number',  type: 'text', ph: '12345-1234567-1' },
-              { k: 'phone',    label: 'Phone Number', type: 'tel',  ph: '03XX-XXXXXXX' },
+              { k: 'phone',    label: 'Phone Number', type: 'tel',  ph: '0345-XXXXXXX' },
               { k: 'password', label: 'Password',     type: 'password', ph: '••••••••' },
             ].map(f => (
               <div key={f.k} style={{ marginBottom: 14 }}>
