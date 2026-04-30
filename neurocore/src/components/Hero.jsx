@@ -99,64 +99,78 @@ export default function Hero({ onBook }) {
             </div>
           </div>
 
-          {/* Right card */}
-          <div style={{ position: 'relative', display: 'flex', justifyContent: 'center' }}>
-            {/* Doctor avatar card */}
+          {/* Right section — Large Professional Image */}
+          <div style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <div style={{
+              position: 'absolute', width: '120%', height: '120%',
+              background: 'url("/assets/clinic.png") center/cover no-repeat',
+              borderRadius: 40, opacity: 0.1, filter: 'grayscale(1) brightness(2)',
+              zIndex: 0, transform: 'rotate(-5deg) scale(1.1)'
+            }} />
+
+            {/* Background decorative element */}
+            <div style={{
+              position: 'absolute', width: '90%', height: '90%',
+              background: 'linear-gradient(135deg,#0D9488 0%,transparent 100%)',
+              borderRadius: '30% 70% 70% 30% / 30% 30% 70% 70%',
+              opacity: 0.2, filter: 'blur(40px)', zIndex: 0,
+            }} />
+
+            {/* Image Container */}
             <div className="animate-float" style={{
-              background: 'linear-gradient(145deg,rgba(13,148,136,0.25),rgba(11,29,58,0.6))',
-              border: '1px solid rgba(13,148,136,0.3)',
-              borderRadius: 24, padding: 32, textAlign: 'center',
-              backdropFilter: 'blur(10px)', width: 280,
+              position: 'relative', width: '100%', maxWidth: 460, zIndex: 1,
             }}>
-              {/* Avatar circle */}
               <div style={{
-                width: 120, height: 120, borderRadius: '50%', margin: '0 auto 20px',
-                background: 'linear-gradient(135deg,#0D9488,#0B1D3A)',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                boxShadow: '0 0 0 4px rgba(13,148,136,0.3), 0 0 0 8px rgba(13,148,136,0.1)',
-                overflow: 'hidden',
+                position: 'relative', borderRadius: 32, overflow: 'hidden',
+                boxShadow: '0 30px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(13,148,136,0.2)',
+                background: '#0B1D3A', aspectRatio: '4/5',
               }}>
-                <img src="/assets/doctor.jpg" alt="Dr. Tabraiz Wali Shah" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src="/assets/doctor.jpg" alt="Dr. Tabraiz Wali Shah" 
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                
+                {/* Bottom overlay info */}
+                <div style={{
+                  position: 'absolute', bottom: 0, left: 0, right: 0,
+                  background: 'linear-gradient(to top, rgba(11,29,58,0.95), transparent)',
+                  padding: '32px 24px 24px', textAlign: 'center'
+                }}>
+                   <div style={{ color: '#fff', fontWeight: 700, fontSize: 20, fontFamily: "'DM Serif Display',serif" }}>
+                    Dr. Tabraiz Wali Shah
+                  </div>
+                  <div style={{ color: '#0D9488', fontSize: 13, marginTop: 4, fontWeight: 600 }}>Consultant Neurosurgeon</div>
+                </div>
               </div>
-              <div style={{ color: '#fff', fontWeight: 700, fontSize: 16, fontFamily: "'DM Serif Display',serif" }}>
-                Dr. Tabraiz W. Shah
-              </div>
-              <div style={{ color: '#0D9488', fontSize: 13, marginTop: 4 }}>Consultant Neurosurgeon</div>
-              <div style={{ display: 'flex', justifyContent: 'center', gap: 6, marginTop: 12 }}>
-                {['PMC Reg.', 'FCPS', 'PMA'].map(tag => (
-                  <span key={tag} style={{
-                    background: 'rgba(13,148,136,0.2)', color: '#0D9488',
-                    padding: '2px 8px', borderRadius: 10, fontSize: 11, fontWeight: 600,
-                  }}>{tag}</span>
-                ))}
-              </div>
-            </div>
 
-            {/* Floating card — Next Available */}
-            <div style={{
-              position: 'absolute', top: -16, left: -16,
-              background: '#fff', borderRadius: 14, padding: '12px 16px',
-              boxShadow: '0 8px 30px rgba(0,0,0,0.2)',
-              display: 'flex', alignItems: 'center', gap: 10, minWidth: 180,
-            }}>
-              <div style={{ width: 36, height: 36, borderRadius: 10, background: '#CCFBF1', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18 }}><Calendar size={18} color="#0D9488" /></div>
-              <div>
-                <div style={{ fontSize: 11, color: '#64748B', fontWeight: 500 }}>Next Available</div>
-                <div style={{ fontSize: 13, color: '#0B1D3A', fontWeight: 700 }}>Today · 3:00 PM</div>
+              {/* Floating card — Next Available */}
+              <div style={{
+                position: 'absolute', top: 30, left: -30,
+                background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(8px)',
+                borderRadius: 16, padding: '14px 20px',
+                boxShadow: '0 12px 40px rgba(0,0,0,0.25)',
+                display: 'flex', alignItems: 'center', gap: 12, minWidth: 200,
+                zIndex: 2,
+              }}>
+                <div style={{ width: 40, height: 40, borderRadius: 12, background: '#CCFBF1', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Calendar size={20} color="#0D9488" /></div>
+                <div>
+                  <div style={{ fontSize: 11, color: '#64748B', fontWeight: 600, textTransform: 'uppercase' }}>Available Today</div>
+                  <div style={{ fontSize: 14, color: '#0B1D3A', fontWeight: 700 }}>3:00 PM - 5:00 PM</div>
+                </div>
               </div>
-            </div>
 
-            {/* Floating card — Rating */}
-            <div style={{
-              position: 'absolute', bottom: -16, right: -16,
-              background: '#fff', borderRadius: 14, padding: '12px 16px',
-              boxShadow: '0 8px 30px rgba(0,0,0,0.2)',
-              display: 'flex', alignItems: 'center', gap: 10,
-            }}>
-              <div style={{ width: 36, height: 36, borderRadius: 10, background: '#FEF3C7', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18 }}><Star size={18} color="#D97706" fill="#D97706" /></div>
-              <div>
-                <div style={{ fontSize: 11, color: '#64748B', fontWeight: 500 }}>Patient Rating</div>
-                <div style={{ fontSize: 13, color: '#0B1D3A', fontWeight: 700 }}>4.9 / 5.0</div>
+              {/* Floating card — Rating */}
+              <div style={{
+                position: 'absolute', bottom: 40, right: -30,
+                background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(8px)',
+                borderRadius: 16, padding: '14px 20px',
+                boxShadow: '0 12px 40px rgba(0,0,0,0.25)',
+                display: 'flex', alignItems: 'center', gap: 12,
+                zIndex: 2,
+              }}>
+                <div style={{ width: 40, height: 40, borderRadius: 12, background: '#FEF3C7', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Star size={20} color="#D97706" fill="#D97706" /></div>
+                <div>
+                  <div style={{ fontSize: 11, color: '#64748B', fontWeight: 600, textTransform: 'uppercase' }}>Patient Satisfaction</div>
+                  <div style={{ fontSize: 14, color: '#0B1D3A', fontWeight: 700 }}>4.9 / 5.0 (2k+ Reviews)</div>
+                </div>
               </div>
             </div>
           </div>
