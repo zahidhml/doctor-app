@@ -1,8 +1,10 @@
+import { GraduationCap, Award, Calendar, MapPin, UserRound, Trophy } from 'lucide-react';
+
 const qualifications = [
-  { icon: '🎓', label: 'MBBS (KMC)', detail: 'Khyber Medical College, Peshawar' },
-  { icon: '🏅', label: 'FCPS Neurosurgery', detail: 'College of Physicians & Surgeons Pakistan' },
-  { icon: '📅', label: 'Extensive Experience', detail: 'Senior Registrar at HMC' },
-  { icon: '📍', label: '2 Locations', detail: 'Peshawar (Main) · Chitral (Visiting)' },
+  { icon: <GraduationCap size={18} color="#0D9488" />, label: 'MBBS (KMC)', detail: 'Khyber Medical College, Peshawar' },
+  { icon: <Award size={18} color="#0D9488" />, label: 'FCPS Neurosurgery', detail: 'College of Physicians & Surgeons Pakistan' },
+  { icon: <Calendar size={18} color="#0D9488" />, label: 'Extensive Experience', detail: 'Senior Registrar at HMC' },
+  { icon: <MapPin size={18} color="#0D9488" />, label: '2 Locations', detail: 'Peshawar (Main) · Chitral (Visiting)' },
 ];
 
 export default function About() {
@@ -28,9 +30,9 @@ export default function About() {
             <div style={{
               width: 100, height: 100, borderRadius: '50%', margin: '0 auto 20px',
               background: 'linear-gradient(135deg,#0D9488,#0B1D3A)',
-              display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 44,
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
               boxShadow: '0 0 0 4px rgba(13,148,136,0.35)',
-            }}>👨‍⚕️</div>
+            }}><UserRound size={44} color="#fff" strokeWidth={1.5} /></div>
 
             <h3 style={{ fontFamily: "'DM Serif Display',serif", color: '#fff', fontSize: 22, marginBottom: 6 }}>
               Dr. Tabraiz Wali Shah
@@ -60,7 +62,7 @@ export default function About() {
               borderRadius: 10, padding: '10px 16px',
               display: 'flex', alignItems: 'center', gap: 8,
             }}>
-              <span style={{ fontSize: 18 }}>🏆</span>
+              <Trophy size={18} color="#D97706" />
               <div style={{ textAlign: 'left' }}>
                 <div style={{ color: '#D97706', fontSize: 12, fontWeight: 700 }}>PMC Registered</div>
                 <div style={{ color: '#94A3B8', fontSize: 11 }}>Reg. No: PMC-2009-11432</div>

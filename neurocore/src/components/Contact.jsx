@@ -1,7 +1,9 @@
+import { MapPin, Phone, MessageSquare, Clock, Map as MapIcon, AlertCircle, Building2, Mountain } from 'lucide-react';
+
 const locations = [
   {
     city: 'Peshawar',
-    icon: '🏥',
+    icon: <Building2 size={24} color="#0D9488" />,
     address: 'Hayatabad Medical Complex, Peshawar, Khyber Pakhtunkhwa, Pakistan',
     phone: '0345-0526102',
     whatsapp: '923450526102',
@@ -10,7 +12,7 @@ const locations = [
   },
   {
     city: 'Chitral',
-    icon: '🏔️',
+    icon: <Mountain size={24} color="#0D9488" />,
     address: 'Shifa Hospital, Chitral, Khyber Pakhtunkhwa, Pakistan',
     phone: '0345-0526102',
     whatsapp: '923450526102',
@@ -49,11 +51,11 @@ export default function Contact() {
                 <div style={{
                   width: 48, height: 48, borderRadius: 12,
                   background: 'linear-gradient(135deg,#CCFBF1,#A7F3D0)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center'
                 }}>{loc.icon}</div>
                 <div>
-                  <h3 style={{ fontFamily: "'DM Serif Display',serif", color: '#0B1D3A', fontSize: 22 }}>
-                    📍 {loc.city}
+                  <h3 style={{ fontFamily: "'DM Serif Display',serif", color: '#0B1D3A', fontSize: 22, display: 'flex', alignItems: 'center', gap: 6 }}>
+                    <MapPin size={20} /> {loc.city}
                   </h3>
                   <span style={{ fontSize: 11, color: '#0D9488', fontWeight: 600, background: '#CCFBF1', padding: '2px 8px', borderRadius: 10 }}>
                     {loc.city === 'Peshawar' ? 'Main Clinic' : 'Visiting Clinic'}
@@ -63,11 +65,11 @@ export default function Contact() {
 
               {/* Info rows */}
               {[
-                { icon: '📍', label: 'Address', val: loc.address },
-                { icon: '🕐', label: 'Hours', val: loc.hours },
+                { icon: <MapPin size={16} />, label: 'Address', val: loc.address },
+                { icon: <Clock size={16} />, label: 'Hours', val: loc.hours },
               ].map(row => (
                 <div key={row.label} style={{ display: 'flex', gap: 12, marginBottom: 14, alignItems: 'flex-start' }}>
-                  <span style={{ fontSize: 16, marginTop: 2 }}>{row.icon}</span>
+                  <span style={{ marginTop: 2 }}>{row.icon}</span>
                   <div>
                     <div style={{ fontSize: 11, color: '#94A3B8', fontWeight: 600, textTransform: 'uppercase', letterSpacing: 0.5 }}>{row.label}</div>
                     <div style={{ color: '#334155', fontSize: 14, marginTop: 2, lineHeight: 1.5 }}>{row.val}</div>
@@ -77,7 +79,7 @@ export default function Contact() {
 
               {/* Phone */}
               <div style={{ display: 'flex', gap: 12, marginBottom: 22, alignItems: 'center' }}>
-                <span style={{ fontSize: 16 }}>📞</span>
+                <Phone size={16} color="#0D9488" />
                 <div>
                   <div style={{ fontSize: 11, color: '#94A3B8', fontWeight: 600, textTransform: 'uppercase', letterSpacing: 0.5 }}>Phone</div>
                   <a href={`tel:${loc.phone}`} style={{ color: '#0D9488', fontSize: 14, fontWeight: 600, textDecoration: 'none' }}>
@@ -100,12 +102,12 @@ export default function Contact() {
                     onMouseEnter={e => e.currentTarget.style.opacity = '0.88'}
                     onMouseLeave={e => e.currentTarget.style.opacity = '1'}
                   >
-                    💬 WhatsApp
+                    <MessageSquare size={16} /> WhatsApp
                   </button>
                 </a>
                 <a href={loc.mapUrl} target="_blank" rel="noreferrer" style={{ flex: 1 }}>
                   <button className="btn-outline" style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6 }}>
-                    🗺️ Maps
+                    <MapIcon size={16} /> Maps
                   </button>
                 </a>
               </div>
@@ -119,7 +121,7 @@ export default function Contact() {
           borderRadius: 16, padding: '20px 28px',
           display: 'flex', alignItems: 'center', gap: 16,
         }}>
-          <span style={{ fontSize: 28 }}>🚨</span>
+          <AlertCircle size={28} color="#EF4444" />
           <div>
             <div style={{ color: '#fff', fontWeight: 700, fontSize: 15 }}>Neurological Emergency?</div>
             <div style={{ color: '#94A3B8', fontSize: 13, marginTop: 4 }}>

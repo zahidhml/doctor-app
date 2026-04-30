@@ -1,3 +1,5 @@
+import { Brain, MapPin, Phone, Mail, Clock } from 'lucide-react';
+
 export default function Footer() {
   return (
     <footer style={{ background: '#07121F', borderTop: '1px solid rgba(255,255,255,0.06)', padding: '40px 24px 28px' }}>
@@ -10,7 +12,7 @@ export default function Footer() {
                 width: 36, height: 36, borderRadius: '50%',
                 background: 'linear-gradient(135deg,#0D9488,#0B1D3A)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18,
-              }}>🧠</div>
+              }}><Brain size={18} color="#fff" /></div>
               <div>
                 <div style={{ color: '#fff', fontWeight: 700, fontSize: 15 }}>NeuroCore</div>
                 <div style={{ color: '#0D9488', fontSize: 11 }}>Neurosurgery Clinic</div>
@@ -42,10 +44,10 @@ export default function Footer() {
           <div>
             <div style={{ color: '#fff', fontWeight: 700, fontSize: 14, marginBottom: 16 }}>Contact</div>
             {[
-              { icon: '📍', val: 'Hayatabad Medical Complex, Peshawar' },
-              { icon: '📞', val: '0345-0526102' },
-              { icon: '✉️', val: 'tabraizshaa@gmail.com' },
-              { icon: '🕐', val: 'Mon–Sat: By Schedule' },
+              { icon: <MapPin size={14} />, val: 'Hayatabad Medical Complex, Peshawar' },
+              { icon: <Phone size={14} />, val: '0345-0526102' },
+              { icon: <Mail size={14} />, val: 'tabraizshaa@gmail.com' },
+              { icon: <Clock size={14} />, val: 'Mon–Sat: By Schedule' },
             ].map(c => (
               <div key={c.icon} style={{ display: 'flex', gap: 8, marginBottom: 10, color: '#64748B', fontSize: 13 }}>
                 <span>{c.icon}</span><span>{c.val}</span>

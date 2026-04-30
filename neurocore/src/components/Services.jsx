@@ -1,10 +1,12 @@
+import { Brain, Activity, Zap, Microscope, Baby, Stethoscope } from 'lucide-react';
+
 const services = [
-  { icon: '🧠', title: 'Brain Tumor Surgery', desc: 'Expert surgical management of benign and malignant brain tumors using advanced microsurgical and neuro-navigational techniques.' },
-  { icon: '🦴', title: 'Spine Surgery', desc: 'Specialized treatment for spinal disorders, including herniated discs, spinal stenosis, spinal trauma, and spinal tumors.' },
-  { icon: '⚡', title: 'Neurotrauma Care', desc: 'Emergency and specialized care for traumatic brain injuries (TBI) and spinal cord injuries (SCI).' },
-  { icon: '🔬', title: 'Microsurgery', desc: 'Highly precise surgical procedures using specialized microscopes to treat vascular malformations and complex nerve disorders.' },
-  { icon: '👶', title: 'Pediatric Neurosurgery', desc: 'Surgical care for children with congenital neurological conditions, hydrocephalus, and other childhood brain and spine disorders.' },
-  { icon: '🩺', title: 'Functional Neurosurgery', desc: 'Surgical interventions for movement disorders, chronic pain, and epilepsy through advanced surgical protocols.' },
+  { icon: <Brain size={26} color="#0D9488" />, title: 'Brain Tumor Surgery', desc: 'Expert surgical management of benign and malignant brain tumors using advanced microsurgical and neuro-navigational techniques.' },
+  { icon: <Activity size={26} color="#0D9488" />, title: 'Spine Surgery', desc: 'Specialized treatment for spinal disorders, including herniated discs, spinal stenosis, spinal trauma, and spinal tumors.' },
+  { icon: <Zap size={26} color="#0D9488" />, title: 'Neurotrauma Care', desc: 'Emergency and specialized care for traumatic brain injuries (TBI) and spinal cord injuries (SCI).' },
+  { icon: <Microscope size={26} color="#0D9488" />, title: 'Microsurgery', desc: 'Highly precise surgical procedures using specialized microscopes to treat vascular malformations and complex nerve disorders.' },
+  { icon: <Baby size={26} color="#0D9488" />, title: 'Pediatric Neurosurgery', desc: 'Surgical care for children with congenital neurological conditions, hydrocephalus, and other childhood brain and spine disorders.' },
+  { icon: <Stethoscope size={26} color="#0D9488" />, title: 'Functional Neurosurgery', desc: 'Surgical interventions for movement disorders, chronic pain, and epilepsy through advanced surgical protocols.' },
 ];
 
 export default function Services() {

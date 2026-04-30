@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Brain } from 'lucide-react';
 
 export default function Navbar({ onBook, onLogin }) {
   const [scrolled, setScrolled] = useState(false);
@@ -36,7 +37,7 @@ export default function Navbar({ onBook, onLogin }) {
             background: 'linear-gradient(135deg,#0D9488,#0B1D3A)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             fontSize: 20, boxShadow: '0 2px 10px rgba(13,148,136,0.4)'
-          }}>🧠</div>
+          }}><Brain size={20} color="#fff" strokeWidth={2.5} /></div>
           <div>
             <div style={{ color: '#fff', fontWeight: 700, fontSize: 15, fontFamily: "'Plus Jakarta Sans',sans-serif", lineHeight: 1.2 }}>NeuroCore</div>
             <div style={{ color: '#0D9488', fontSize: 10, fontFamily: "'Plus Jakarta Sans',sans-serif", fontWeight: 500 }}>Neurosurgery Clinic</div>

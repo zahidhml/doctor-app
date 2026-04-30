@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Brain, Calendar, Pill, User, Plus, LogOut, Check, MapPin, UserRound, Phone, CreditCard, Download, MessageSquare, Clock, FileText, Activity } from 'lucide-react';
 import { clearSession, getAppointments, getPrescriptions, updateUser, getUsers, addAppointment } from '../utils/storage.js';
 import { generatePrescriptionPDF, whatsAppPrescription } from '../utils/pdf.js';
 
@@ -41,10 +40,10 @@ export default function PatientDashboard({ session, setSession }) {
   };
 
   const navItems = [
-    { id: 'appointments', icon: '📅', label: 'My Appointments' },
-    { id: 'prescriptions', icon: '💊', label: 'Prescriptions' },
-    { id: 'profile',       icon: '👤', label: 'My Profile' },
-    { id: 'book',          icon: '➕', label: 'Book Again' },
+    { id: 'appointments', icon: <Calendar size={18} />, label: 'My Appointments' },
+    { id: 'prescriptions', icon: <Pill size={18} />, label: 'Prescriptions' },
+    { id: 'profile',       icon: <User size={18} />, label: 'My Profile' },
+    { id: 'book',          icon: <Plus size={18} />, label: 'Book Again' },
   ];
 
   return (
@@ -59,7 +58,11 @@ export default function PatientDashboard({ session, setSession }) {
         {/* Logo */}
         <div style={{ padding: '0 20px', marginBottom: 28 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <div style={{ fontSize: 22 }}>🧠</div>
+            <div style={{
+              width: 32, height: 32, borderRadius: '50%',
+              background: 'linear-gradient(135deg,#0D9488,#0B1D3A)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+            }}><Brain size={18} color="#fff" /></div>
             <div>
               <div style={{ color: '#fff', fontWeight: 700, fontSize: 13 }}>NeuroCore</div>
               <div style={{ color: '#0D9488', fontSize: 10 }}>Neurosurgery Portal</div>
@@ -102,7 +105,7 @@ export default function PatientDashboard({ session, setSession }) {
             onMouseEnter={e => e.currentTarget.style.background = 'rgba(220,38,38,0.1)'}
             onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
           >
-            <span>🚪</span><span>Logout</span>
+            <LogOut size={18} /><span>Logout</span>
           </div>
         </div>
       </aside>
@@ -119,9 +122,9 @@ export default function PatientDashboard({ session, setSession }) {
             {/* Metrics */}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 16, marginBottom: 28 }}>
               {[
-                { label: 'Total', val: allAppts.length, icon: '📅', color: '#CCFBF1' },
-                { label: 'Upcoming', val: allAppts.filter(a => a.status === 'Confirmed').length, icon: '⏳', color: '#FEF3C7' },
-                { label: 'Completed', val: allAppts.filter(a => a.status === 'Done').length, icon: '✅', color: '#DCFCE7' },
+                { label: 'Total', val: allAppts.length, icon: <Calendar size={18} color="#0D9488" />, color: '#CCFBF1' },
+                { label: 'Upcoming', val: allAppts.filter(a => a.status === 'Confirmed').length, icon: <Clock size={18} color="#D97706" />, color: '#FEF3C7' },
+                { label: 'Completed', val: allAppts.filter(a => a.status === 'Done').length, icon: <Check size={18} color="#15803D" />, color: '#DCFCE7' },
               ].map(m => (
                 <div key={m.label} className="card" style={{ padding: 20 }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
@@ -142,7 +145,7 @@ export default function PatientDashboard({ session, setSession }) {
               </div>
               {allAppts.length === 0 ? (
                 <div style={{ padding: 40, textAlign: 'center', color: '#94A3B8' }}>
-                  <div style={{ fontSize: 40, marginBottom: 10 }}>📭</div>
+                  <div style={{ fontSize: 40, marginBottom: 10 }}><Search size={40} color="#94A3B8" /></div>
                   <div style={{ fontWeight: 600 }}>No appointments yet</div>
                   <div style={{ fontSize: 13, marginTop: 4 }}>Book your first appointment to get started</div>
                 </div>
@@ -160,7 +163,7 @@ export default function PatientDashboard({ session, setSession }) {
                       <tr key={a.id}>
                         <td style={{ fontWeight: 500 }}>{a.date}</td>
                         <td>{a.slot}</td>
-                        <td>📍 {a.city}</td>
+                        <td><MapPin size={14} style={{ marginRight: 4, verticalAlign: 'text-bottom' }} /> {a.city}</td>
                         <td>{a.doctor}</td>
                         <td>
                           <span className={a.status === 'Done' ? 'badge-green' : a.status === 'Confirmed' ? 'badge-blue' : 'badge-amber'}>
@@ -183,11 +186,11 @@ export default function PatientDashboard({ session, setSession }) {
             <p style={{ color: '#64748B', fontSize: 14, marginBottom: 28 }}>Your prescription history from Dr. Tabraiz Wali Shah</p>
 
             {allRx.length === 0 ? (
-              <div className="card" style={{ padding: 48, textAlign: 'center', color: '#94A3B8' }}>
-                <div style={{ fontSize: 48, marginBottom: 12 }}>💊</div>
-                <div style={{ fontWeight: 600, fontSize: 16 }}>No prescriptions yet</div>
-                <div style={{ fontSize: 13, marginTop: 6 }}>Your doctor will issue prescriptions after your consultation</div>
-              </div>
+                <div style={{ padding: 40, textAlign: 'center' }}>
+                  <div style={{ fontSize: 48, marginBottom: 12 }}><Pill size={48} color="#94A3B8" /></div>
+                  <div style={{ fontWeight: 600, fontSize: 16 }}>No prescriptions yet</div>
+                  <div style={{ fontSize: 13, marginTop: 6 }}>Your doctor will issue prescriptions after your consultation</div>
+                </div>
             ) : (
               <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                 {allRx.map(rx => (
@@ -211,7 +214,9 @@ export default function PatientDashboard({ session, setSession }) {
 
                     {/* Medicines */}
                     <div style={{ marginBottom: 14 }}>
-                      <div style={{ fontWeight: 600, color: '#374151', fontSize: 13, marginBottom: 8 }}>💊 Medicines</div>
+                      <div style={{ fontWeight: 600, color: '#374151', fontSize: 13, marginBottom: 8, display: 'flex', alignItems: 'center', gap: 6 }}>
+                        <Pill size={16} color="#0D9488" /> Medicines
+                      </div>
                       {(rx.medicines || []).filter(m => m.trim()).map((med, i) => (
                         <div key={i} style={{
                           background: '#F0FDF9', border: '1px solid #A7F3D0', borderRadius: 8,
@@ -223,26 +228,26 @@ export default function PatientDashboard({ session, setSession }) {
                     </div>
 
                     {rx.instructions && (
-                      <div style={{ color: '#64748B', fontSize: 13, marginBottom: 16, background: '#F8FAFC', borderRadius: 8, padding: '10px 14px' }}>
-                        📝 {rx.instructions}
+                      <div style={{ color: '#64748B', fontSize: 13, marginBottom: 16, background: '#F8FAFC', borderRadius: 8, padding: '10px 14px', display: 'flex', alignItems: 'center', gap: 8 }}>
+                        <FileText size={16} /> {rx.instructions}
                       </div>
                     )}
 
                     {/* Actions */}
                     <div style={{ display: 'flex', gap: 10 }}>
-                      <button className="btn-primary" style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 13 }}
-                        onClick={() => generatePrescriptionPDF({ ...rx, patientName: session.name, prescriptionId: rx.id, date: new Date(rx.date).toLocaleDateString() })}>
-                        📥 Download PDF
-                      </button>
-                      <button style={{
-                        background: '#25D366', color: '#fff', border: 'none', borderRadius: 8,
-                        padding: '8px 16px', fontFamily: "'Plus Jakarta Sans',sans-serif",
-                        fontWeight: 600, fontSize: 13, cursor: 'pointer',
-                        display: 'flex', alignItems: 'center', gap: 6,
-                      }}
-                        onClick={() => whatsAppPrescription({ ...rx, patientName: session.name, phone: session.phone })}>
-                        💬 WhatsApp
-                      </button>
+                        <button className="btn-primary" style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 13 }}
+                          onClick={() => generatePrescriptionPDF({ ...rx, patientName: session.name, prescriptionId: rx.id, date: new Date(rx.date).toLocaleDateString() })}>
+                          <Download size={16} /> Download PDF
+                        </button>
+                        <button style={{
+                          background: '#25D366', color: '#fff', border: 'none', borderRadius: 8,
+                          padding: '8px 16px', fontFamily: "'Plus Jakarta Sans',sans-serif",
+                          fontWeight: 600, fontSize: 13, cursor: 'pointer',
+                          display: 'flex', alignItems: 'center', gap: 6,
+                        }}
+                          onClick={() => whatsAppPrescription({ ...rx, patientName: session.name, phone: session.phone })}>
+                          <MessageSquare size={16} /> WhatsApp
+                        </button>
                     </div>
                   </div>
                 ))}
@@ -269,11 +274,11 @@ export default function PatientDashboard({ session, setSession }) {
               </div>
 
               {[
-                { icon: '📞', label: 'Phone',    val: session.phone },
-                { icon: '🪪', label: 'CNIC',     val: session.cnic },
-                { icon: '📍', label: 'City',     val: session.city || 'Not set' },
-                { icon: '🩸', label: 'Blood Group', val: session.bloodGroup || 'Not set' },
-                { icon: '👨‍⚕️', label: 'Doctor', val: 'Dr. Tabraiz Wali Shah' },
+                { icon: <Phone size={16} color="#0D9488" />, label: 'Phone',    val: session.phone },
+                { icon: <CreditCard size={16} color="#0D9488" />, label: 'CNIC',     val: session.cnic },
+                { icon: <MapPin size={16} color="#0D9488" />, label: 'City',     val: session.city || 'Not set' },
+                { icon: <Activity size={16} color="#0D9488" />, label: 'Blood Group', val: session.bloodGroup || 'Not set' },
+                { icon: <UserRound size={16} color="#0D9488" />, label: 'Doctor', val: 'Dr. Tabraiz Wali Shah' },
               ].map(row => (
                 <div key={row.label} style={{
                   display: 'flex', alignItems: 'center', gap: 14, padding: '14px 0',
@@ -299,7 +304,9 @@ export default function PatientDashboard({ session, setSession }) {
             <div className="card" style={{ padding: 32, maxWidth: 520 }}>
               {/* Pre-filled info */}
               <div style={{ background: '#F0FDF9', border: '1px solid #A7F3D0', borderRadius: 10, padding: '14px 18px', marginBottom: 24 }}>
-                <div style={{ fontWeight: 700, color: '#065F46', fontSize: 13, marginBottom: 8 }}>✅ Pre-filled from your profile</div>
+                <div style={{ fontWeight: 700, color: '#065F46', fontSize: 13, marginBottom: 8, display: 'flex', alignItems: 'center', gap: 6 }}>
+                  <Check size={16} /> Pre-filled from your profile
+                </div>
                 {[
                   { label: 'Name',  val: session.name },
                   { label: 'Phone', val: session.phone },
@@ -322,8 +329,8 @@ export default function PatientDashboard({ session, setSession }) {
                     <select className="input-field" value={bookForm.city}
                       onChange={e => { setB('city', e.target.value); setB('slot', ''); }}>
                       <option value="">— Choose location —</option>
-                      <option value="Peshawar">📍 Peshawar</option>
-                      <option value="Chitral">📍 Chitral</option>
+                      <option value="Peshawar">Peshawar</option>
+                      <option value="Chitral">Chitral</option>
                     </select>
                   ) : (
                     <input type="date" className="input-field" min={today} value={bookForm.date}
@@ -344,10 +351,10 @@ export default function PatientDashboard({ session, setSession }) {
                 </div>
               )}
 
-              <button className="btn-primary" style={{ width: '100%' }}
+              <button className="btn-primary" style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}
                 disabled={!bookForm.city || !bookForm.date || !bookForm.slot}
                 onClick={handleBookAgain} id="book-again-btn">
-                ✅ Confirm Appointment
+                <Check size={18} /> Confirm Appointment
               </button>
             </div>
           </div>

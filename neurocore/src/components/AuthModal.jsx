@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { X, AlertCircle } from 'lucide-react';
 import { registerUser, loginUser, setSession, addAppointment } from '../utils/storage.js';
 import { useNavigate } from 'react-router-dom';
 
@@ -58,7 +59,8 @@ export default function AuthModal({ onClose, pendingAppt, setSession: updateSess
           <button onClick={onClose} style={{
             width: 30, height: 30, borderRadius: '50%', border: '1.5px solid #E2E8F0',
             background: 'none', cursor: 'pointer', fontSize: 18, color: '#64748B',
-          }}>×</button>
+            display: 'flex', alignItems: 'center', justifyContent: 'center'
+          }}><X size={16} /></button>
         </div>
         <p style={{ color: '#64748B', fontSize: 13, marginBottom: 22 }}>
           {tab === 'login' ? 'Sign in to access your patient portal.' : 'Register to book and manage appointments.'}
@@ -96,7 +98,7 @@ export default function AuthModal({ onClose, pendingAppt, setSession: updateSess
                   value={form[f.k]} onChange={e => set(f.k, e.target.value)} />
               </div>
             ))}
-            {error && <div style={{ color: '#DC2626', fontSize: 13, marginBottom: 10 }}>⚠️ {error}</div>}
+            {error && <div style={{ color: '#DC2626', fontSize: 13, marginBottom: 10, display: 'flex', alignItems: 'center', gap: 6 }}><AlertCircle size={14} /> {error}</div>}
             <button className="btn-primary" style={{ width: '100%', marginTop: 4 }}
               onClick={handleRegister} disabled={loading} id="auth-register-btn">
               {loading ? 'Creating Account…' : 'Create Account & Confirm Appointment'}
@@ -116,7 +118,7 @@ export default function AuthModal({ onClose, pendingAppt, setSession: updateSess
                   value={form[f.k]} onChange={e => set(f.k, e.target.value)} />
               </div>
             ))}
-            {error && <div style={{ color: '#DC2626', fontSize: 13, marginBottom: 10 }}>⚠️ {error}</div>}
+            {error && <div style={{ color: '#DC2626', fontSize: 13, marginBottom: 10, display: 'flex', alignItems: 'center', gap: 6 }}><AlertCircle size={14} /> {error}</div>}
             <button className="btn-primary" style={{ width: '100%', marginTop: 4 }}
               onClick={handleLogin} disabled={loading} id="auth-login-btn">
               {loading ? 'Signing in…' : 'Sign In'}

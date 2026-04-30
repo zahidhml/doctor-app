@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { MapPin, Calendar, Clock, User, Phone, CreditCard, Check, AlertTriangle, X } from 'lucide-react';
 
 const PESHAWAR_SLOTS = ['9:00 AM', '9:30 AM', '10:00 AM', '10:30 AM', '11:00 AM', '3:00 PM', '3:30 PM', '4:00 PM'];
 const CHITRAL_SLOTS  = ['10:00 AM', '10:30 AM', '11:00 AM', '11:30 AM', '12:00 PM'];
@@ -41,7 +42,7 @@ export default function BookingModal({ onClose, onAuthNeeded, prefill }) {
             width: 32, height: 32, borderRadius: '50%', border: '1.5px solid #E2E8F0',
             background: 'none', cursor: 'pointer', fontSize: 18, color: '#64748B',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-          }}>×</button>
+          }}><X size={16} /></button>
         </div>
 
         {/* Progress */}
@@ -50,7 +51,7 @@ export default function BookingModal({ onClose, onAuthNeeded, prefill }) {
             <div key={s.n} style={{ display: 'flex', alignItems: 'center', flex: 1 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                 <div className={`step-circle ${step > s.n ? 'done' : step === s.n ? 'active' : 'todo'}`}>
-                  {step > s.n ? '✓' : s.n}
+                  {step > s.n ? <Check size={12} /> : s.n}
                 </div>
                 <span style={{ fontSize: 12, fontWeight: 600, color: step >= s.n ? '#0D9488' : '#94A3B8', whiteSpace: 'nowrap' }}>
                   {s.label}
@@ -69,8 +70,8 @@ export default function BookingModal({ onClose, onAuthNeeded, prefill }) {
             <label style={lbl}>Select City</label>
             <select className="input-field" value={form.city} onChange={e => { set('city', e.target.value); set('slot', ''); }} style={{ marginBottom: 16 }}>
               <option value="">— Choose location —</option>
-              <option value="Peshawar">📍 Peshawar</option>
-              <option value="Chitral">📍 Chitral</option>
+              <option value="Peshawar">Peshawar</option>
+              <option value="Chitral">Chitral</option>
             </select>
 
             <label style={lbl}>Select Date</label>
@@ -135,15 +136,15 @@ export default function BookingModal({ onClose, onAuthNeeded, prefill }) {
                 📋 Appointment Summary
               </div>
               {[
-                { icon: '📍', label: 'Location', val: form.city },
-                { icon: '📅', label: 'Date',     val: form.date },
-                { icon: '🕐', label: 'Time',     val: form.slot },
-                { icon: '👤', label: 'Patient',  val: form.name },
-                { icon: '📞', label: 'Phone',    val: form.phone },
-                { icon: '🪪', label: 'CNIC',     val: form.cnic },
+                { icon: <MapPin size={14} />, label: 'Location', val: form.city },
+                { icon: <Calendar size={14} />, label: 'Date',     val: form.date },
+                { icon: <Clock size={14} />, label: 'Time',     val: form.slot },
+                { icon: <User size={14} />, label: 'Patient',  val: form.name },
+                { icon: <Phone size={14} />, label: 'Phone',    val: form.phone },
+                { icon: <CreditCard size={14} />, label: 'CNIC',     val: form.cnic },
               ].map(row => (
                 <div key={row.label} style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 9, fontSize: 14 }}>
-                  <span style={{ color: '#64748B' }}>{row.icon} {row.label}</span>
+                  <span style={{ color: '#64748B', display: 'flex', alignItems: 'center', gap: 6 }}>{row.icon} {row.label}</span>
                   <span style={{ color: '#0B1D3A', fontWeight: 600 }}>{row.val || '—'}</span>
                 </div>
               ))}
@@ -154,7 +155,7 @@ export default function BookingModal({ onClose, onAuthNeeded, prefill }) {
               background: '#FEF3C7', border: '1px solid #FDE68A', borderRadius: 10,
               padding: '10px 14px', display: 'flex', gap: 8, alignItems: 'center', marginBottom: 20,
             }}>
-              <span>⚠️</span>
+              <AlertTriangle size={16} color="#92400E" />
               <span style={{ color: '#92400E', fontSize: 13 }}>
                 Please register or login to save your appointment to your account.
               </span>

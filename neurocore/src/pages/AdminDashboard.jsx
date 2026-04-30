@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { LayoutDashboard, Calendar, Users, FileText, CreditCard, Brain, UserRound, LogOut, Check, Trash2, Search, Plus, Download, MessageSquare, MapPin, Clock, Info } from 'lucide-react';
 import { getAppointments, updateAppointmentStatus, deleteAppointment, getUsers, saveUsers, getPrescriptions, getPayments, addPrescription } from '../utils/storage.js';
 import { generatePrescriptionPDF, whatsAppPrescription } from '../utils/pdf.js';
 import { useNavigate } from 'react-router-dom';
@@ -21,7 +22,7 @@ function OverviewTab({ appts, patients, onPrescribe }) {
       {/* Greeting */}
       <div style={{ background: 'linear-gradient(135deg,#0B1D3A,#132848)', borderRadius: 16, padding: '24px 28px', marginBottom: 28, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div>
-          <h2 style={{ fontFamily: "'DM Serif Display',serif", color: '#fff', fontSize: 24 }}>{greeting}, Doctor 👋</h2>
+          <h2 style={{ fontFamily: "'DM Serif Display',serif", color: '#fff', fontSize: 24 }}>{greeting}, Doctor <UserRound size={24} style={{ display: 'inline', verticalAlign: 'middle' }} /></h2>
           <p style={{ color: '#94A3B8', fontSize: 13, marginTop: 4 }}>
             {today.toLocaleDateString('en-PK', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })} · NeuroCore Neurology Clinic
           </p>
@@ -35,10 +36,10 @@ function OverviewTab({ appts, patients, onPrescribe }) {
       {/* Metrics */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 16, marginBottom: 28 }}>
         {[
-          { label: "Today's Appts", val: todayAppts.length, icon: '📅', bg: '#CCFBF1', color: '#0D9488' },
-          { label: 'Pending', val: pending.length, icon: '⏳', bg: '#FEF3C7', color: '#D97706' },
-          { label: 'Total Patients', val: patients.length, icon: '👥', bg: '#DBEAFE', color: '#2563EB' },
-          { label: 'Weekly Revenue', val: `Rs ${weekRev.toLocaleString()}`, icon: '💰', bg: '#F3E8FF', color: '#9333EA' },
+          { label: "Today's Appts", val: todayAppts.length, icon: <Calendar size={18} color="#0D9488" />, bg: '#CCFBF1' },
+          { label: 'Pending', val: pending.length, icon: <Clock size={18} color="#D97706" />, bg: '#FEF3C7' },
+          { label: 'Total Patients', val: patients.length, icon: <Users size={18} color="#2563EB" />, bg: '#DBEAFE' },
+          { label: 'Weekly Revenue', val: `Rs ${weekRev.toLocaleString()}`, icon: <CreditCard size={18} color="#9333EA" />, bg: '#F3E8FF' },
         ].map(m => (
           <div key={m.label} className="card" style={{ padding: 20 }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
@@ -54,8 +55,8 @@ function OverviewTab({ appts, patients, onPrescribe }) {
 
       {/* Today's schedule */}
       <div className="card" style={{ overflow: 'auto' }}>
-        <div style={{ padding: '16px 20px', borderBottom: '1px solid #F1F5F9', fontWeight: 700, color: '#0B1D3A', fontSize: 15 }}>
-          📋 Today's Schedule
+        <div style={{ padding: '16px 20px', borderBottom: '1px solid #F1F5F9', fontWeight: 700, color: '#0B1D3A', fontSize: 15, display: 'flex', alignItems: 'center', gap: 8 }}>
+          <Calendar size={18} color="#0B1D3A" /> Today's Schedule
         </div>
         {todayAppts.length === 0 ? (
           <div style={{ padding: 36, textAlign: 'center', color: '#94A3B8' }}>No appointments scheduled for today</div>
@@ -67,11 +68,11 @@ function OverviewTab({ appts, patients, onPrescribe }) {
                 <tr key={a.id}>
                   <td style={{ fontWeight: 600 }}>{a.patientName}</td>
                   <td>{a.slot}</td>
-                  <td>📍 {a.city}</td>
+                  <td><MapPin size={14} style={{ marginRight: 4, verticalAlign: 'text-bottom' }} /> {a.city}</td>
                   <td><span className={a.status === 'Done' ? 'badge-green' : 'badge-amber'}>{a.status}</span></td>
                   <td>
-                    <button className="btn-primary" style={{ padding: '5px 12px', fontSize: 12 }}
-                      onClick={() => onPrescribe(a)}>📝 Prescribe</button>
+                    <button className="btn-primary" style={{ padding: '5px 12px', fontSize: 12, display: 'flex', alignItems: 'center', gap: 4 }}
+                      onClick={() => onPrescribe(a)}><FileText size={14} /> Prescribe</button>
                   </td>
                 </tr>
               ))}
@@ -95,7 +96,7 @@ function AppointmentsTab({ appts, refresh }) {
       <div className="card" style={{ overflow: 'auto' }}>
         {appts.length === 0 ? (
           <div style={{ padding: 48, textAlign: 'center', color: '#94A3B8' }}>
-            <div style={{ fontSize: 40, marginBottom: 10 }}>📭</div>
+            <div style={{ fontSize: 40, marginBottom: 10 }}><Search size={40} color="#94A3B8" /></div>
             <div style={{ fontWeight: 600 }}>No appointments yet</div>
           </div>
         ) : (
@@ -111,7 +112,7 @@ function AppointmentsTab({ appts, refresh }) {
                   </td>
                   <td>{a.date}</td>
                   <td>{a.slot}</td>
-                  <td>📍 {a.city}</td>
+                  <td><MapPin size={14} style={{ marginRight: 4, verticalAlign: 'text-bottom' }} /> {a.city}</td>
                   <td><span className={a.status === 'Done' ? 'badge-green' : a.status === 'Confirmed' ? 'badge-blue' : 'badge-amber'}>{a.status}</span></td>
                   <td>
                     <div style={{ display: 'flex', gap: 6 }}>
@@ -119,12 +120,13 @@ function AppointmentsTab({ appts, refresh }) {
                         <button onClick={() => handleDone(a.id)} style={{
                           background: '#DCFCE7', color: '#15803D', border: 'none', borderRadius: 6,
                           padding: '4px 10px', fontSize: 12, fontWeight: 600, cursor: 'pointer',
-                        }}>✓ Done</button>
+                          display: 'flex', alignItems: 'center', gap: 4
+                        }}><Check size={14} /> Done</button>
                       )}
                       <button onClick={() => handleDel(a.id)} style={{
                         background: '#FEE2E2', color: '#B91C1C', border: 'none', borderRadius: 6,
                         padding: '4px 10px', fontSize: 12, fontWeight: 600, cursor: 'pointer',
-                      }}>🗑</button>
+                      }}><Trash2 size={14} /></button>
                     </div>
                   </td>
                 </tr>
@@ -195,8 +197,8 @@ function PatientsTab({ patients, onPrescribe }) {
                   </td>
                   <td>{p.city || '—'}</td>
                   <td onClick={e => e.stopPropagation()}>
-                    <button className="btn-primary" style={{ padding: '5px 12px', fontSize: 12 }}
-                      onClick={() => onPrescribe(p)}>📝 Prescribe</button>
+                    <button className="btn-primary" style={{ padding: '5px 12px', fontSize: 12, display: 'flex', alignItems: 'center', gap: 4 }}
+                      onClick={() => onPrescribe(p)}><FileText size={14} /> Prescribe</button>
                   </td>
                 </tr>
               ))}
@@ -290,7 +292,9 @@ function PrescriptionTab({ prefillPatient, clearPrefill }) {
       {/* Doctor letterhead */}
       <div style={{ background: 'linear-gradient(135deg,#0B1D3A,#132848)', borderRadius: 16, padding: '24px 28px', marginBottom: 24 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-          <div style={{ width: 56, height: 56, borderRadius: '50%', background: 'rgba(13,148,136,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 26 }}>👨‍⚕️</div>
+          <div style={{ width: 56, height: 56, borderRadius: '50%', background: 'rgba(13,148,136,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <UserRound size={32} color="#0D9488" />
+          </div>
           <div>
             <div style={{ fontFamily: "'DM Serif Display',serif", color: '#fff', fontSize: 20 }}>Dr. Tabraiz Wali Shah</div>
             <div style={{ color: '#0D9488', fontSize: 13, marginTop: 2 }}>MBBS (KMC) · FCPS Neurosurgery · Consultant Neurosurgeon</div>
@@ -339,7 +343,7 @@ function PrescriptionTab({ prefillPatient, clearPrefill }) {
         <div style={{ display: 'flex', gap: 12 }}>
           <button className="btn-primary" style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '11px 22px' }}
             onClick={handleGenPDF} id="admin-gen-pdf">
-            📥 Generate PDF
+            <Download size={18} /> Generate PDF
           </button>
           <button onClick={handleWA} style={{
             background: '#25D366', color: '#fff', border: 'none', borderRadius: 8,
@@ -347,7 +351,7 @@ function PrescriptionTab({ prefillPatient, clearPrefill }) {
             fontWeight: 600, fontSize: 14, cursor: 'pointer',
             display: 'flex', alignItems: 'center', gap: 8,
           }}>
-            💬 WhatsApp
+            <MessageSquare size={18} /> WhatsApp
           </button>
         </div>
       </div>
@@ -370,9 +374,9 @@ function PaymentsTab() {
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 16, marginBottom: 28 }}>
         {[
-          { label: 'This Week', val: `Rs ${thisWeek.toLocaleString()}`, icon: '📅', bg: '#CCFBF1' },
-          { label: 'This Month', val: `Rs ${thisMonth.toLocaleString()}`, icon: '📆', bg: '#DBEAFE' },
-          { label: 'Pending', val: `Rs ${pending.reduce((s, p) => s + p.amount, 0).toLocaleString()}`, icon: '⏳', bg: '#FEF3C7' },
+          { label: 'This Week', val: `Rs ${thisWeek.toLocaleString()}`, icon: <Calendar size={18} color="#0D9488" />, bg: '#CCFBF1' },
+          { label: 'This Month', val: `Rs ${thisMonth.toLocaleString()}`, icon: <Calendar size={18} color="#2563EB" />, bg: '#DBEAFE' },
+          { label: 'Pending', val: `Rs ${pending.reduce((s, p) => s + p.amount, 0).toLocaleString()}`, icon: <Clock size={18} color="#D97706" />, bg: '#FEF3C7' },
         ].map(m => (
           <div key={m.label} className="card" style={{ padding: 22 }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
@@ -425,11 +429,11 @@ export default function AdminDashboard() {
   };
 
   const navItems = [
-    { id: 'overview', icon: '📊', label: 'Overview' },
-    { id: 'appointments', icon: '📅', label: 'Appointments' },
-    { id: 'patients', icon: '👥', label: 'Patient Records' },
-    { id: 'prescription', icon: '📝', label: 'Write Prescription' },
-    { id: 'payments', icon: '💰', label: 'Payments' },
+    { id: 'overview', icon: <LayoutDashboard size={18} />, label: 'Overview' },
+    { id: 'appointments', icon: <Calendar size={18} />, label: 'Appointments' },
+    { id: 'patients', icon: <Users size={18} />, label: 'Patient Records' },
+    { id: 'prescription', icon: <FileText size={18} />, label: 'Write Prescription' },
+    { id: 'payments', icon: <CreditCard size={18} />, label: 'Payments' },
   ];
 
   return (
@@ -443,7 +447,11 @@ export default function AdminDashboard() {
         {/* Logo */}
         <div style={{ padding: '0 20px', marginBottom: 28 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <div style={{ fontSize: 22 }}>🧠</div>
+            <div style={{
+              width: 32, height: 32, borderRadius: '50%',
+              background: 'linear-gradient(135deg,#0D9488,#0B1D3A)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+            }}><Brain size={18} color="#fff" /></div>
             <div>
               <div style={{ color: '#fff', fontWeight: 700, fontSize: 13 }}>NeuroCore</div>
               <div style={{ color: '#0D9488', fontSize: 10 }}>Admin Panel</div>
@@ -457,8 +465,8 @@ export default function AdminDashboard() {
             width: 64, height: 64, borderRadius: '50%', margin: '0 auto 10px',
             background: 'linear-gradient(135deg,#D97706,#92400E)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            fontSize: 28, boxShadow: '0 0 0 3px rgba(217,119,6,0.3)',
-          }}>👨‍⚕️</div>
+            boxShadow: '0 0 0 3px rgba(217,119,6,0.3)',
+          }}><UserRound size={32} color="#fff" /></div>
           <div style={{ color: '#fff', fontWeight: 700, fontSize: 13 }}>Dr. Tabraiz W. Shah</div>
           <div style={{ color: '#D97706', fontSize: 11, marginTop: 2, fontWeight: 600 }}>Super Admin</div>
         </div>
@@ -480,7 +488,7 @@ export default function AdminDashboard() {
             style={{ color: '#DC2626' }}
             onMouseEnter={e => e.currentTarget.style.background = 'rgba(220,38,38,0.1)'}
             onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
-          ><span>🚪</span><span>Exit Admin</span></div>
+          ><LogOut size={18} /><span>Exit Admin</span></div>
         </div>
       </aside>
 

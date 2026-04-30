@@ -1,3 +1,5 @@
+import { MapPin, Calendar, Star, UserRound } from 'lucide-react';
+
 export default function Hero({ onBook }) {
   const stats = [
     { value: '2000+', label: 'Patients Treated' },
@@ -61,12 +63,13 @@ export default function Hero({ onBook }) {
 
             {/* Location chips */}
             <div style={{ display: 'flex', gap: 10, marginBottom: 28 }}>
-              {['📍 Peshawar', '📍 Chitral'].map(loc => (
+              {['Peshawar', 'Chitral'].map(loc => (
                 <div key={loc} style={{
                   background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.15)',
                   borderRadius: 20, padding: '5px 14px',
                   color: '#CBD5E1', fontSize: 13, fontWeight: 500,
-                }}>{loc}</div>
+                  display: 'flex', alignItems: 'center', gap: 6,
+                }}><MapPin size={14} color="#0D9488" /> {loc}</div>
               ))}
             </div>
 
@@ -111,7 +114,7 @@ export default function Hero({ onBook }) {
                 background: 'linear-gradient(135deg,#0D9488,#0B1D3A)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 fontSize: 52, boxShadow: '0 0 0 4px rgba(13,148,136,0.3), 0 0 0 8px rgba(13,148,136,0.1)',
-              }}>👨‍⚕️</div>
+              }}><UserRound size={52} color="#fff" strokeWidth={1.5} /></div>
               <div style={{ color: '#fff', fontWeight: 700, fontSize: 16, fontFamily: "'DM Serif Display',serif" }}>
                 Dr. Tabraiz W. Shah
               </div>
@@ -133,7 +136,7 @@ export default function Hero({ onBook }) {
               boxShadow: '0 8px 30px rgba(0,0,0,0.2)',
               display: 'flex', alignItems: 'center', gap: 10, minWidth: 180,
             }}>
-              <div style={{ width: 36, height: 36, borderRadius: 10, background: '#CCFBF1', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18 }}>📅</div>
+              <div style={{ width: 36, height: 36, borderRadius: 10, background: '#CCFBF1', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18 }}><Calendar size={18} color="#0D9488" /></div>
               <div>
                 <div style={{ fontSize: 11, color: '#64748B', fontWeight: 500 }}>Next Available</div>
                 <div style={{ fontSize: 13, color: '#0B1D3A', fontWeight: 700 }}>Today · 3:00 PM</div>
@@ -147,7 +150,7 @@ export default function Hero({ onBook }) {
               boxShadow: '0 8px 30px rgba(0,0,0,0.2)',
               display: 'flex', alignItems: 'center', gap: 10,
             }}>
-              <div style={{ width: 36, height: 36, borderRadius: 10, background: '#FEF3C7', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18 }}>⭐</div>
+              <div style={{ width: 36, height: 36, borderRadius: 10, background: '#FEF3C7', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18 }}><Star size={18} color="#D97706" fill="#D97706" /></div>
               <div>
                 <div style={{ fontSize: 11, color: '#64748B', fontWeight: 500 }}>Patient Rating</div>
                 <div style={{ fontSize: 13, color: '#0B1D3A', fontWeight: 700 }}>4.9 / 5.0</div>
