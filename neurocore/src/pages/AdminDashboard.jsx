@@ -466,7 +466,10 @@ export default function AdminDashboard() {
             background: 'linear-gradient(135deg,#D97706,#92400E)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             boxShadow: '0 0 0 3px rgba(217,119,6,0.3)',
-          }}><UserRound size={32} color="#fff" /></div>
+            overflow: 'hidden',
+          }}>
+            <img src="/assets/doctor.jpg" alt="Dr. Tabraiz" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          </div>
           <div style={{ color: '#fff', fontWeight: 700, fontSize: 13 }}>Dr. Tabraiz W. Shah</div>
           <div style={{ color: '#D97706', fontSize: 11, marginTop: 2, fontWeight: 600 }}>Super Admin</div>
         </div>

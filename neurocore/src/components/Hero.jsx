@@ -113,8 +113,11 @@ export default function Hero({ onBook }) {
                 width: 120, height: 120, borderRadius: '50%', margin: '0 auto 20px',
                 background: 'linear-gradient(135deg,#0D9488,#0B1D3A)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontSize: 52, boxShadow: '0 0 0 4px rgba(13,148,136,0.3), 0 0 0 8px rgba(13,148,136,0.1)',
-              }}><UserRound size={52} color="#fff" strokeWidth={1.5} /></div>
+                boxShadow: '0 0 0 4px rgba(13,148,136,0.3), 0 0 0 8px rgba(13,148,136,0.1)',
+                overflow: 'hidden',
+              }}>
+                <img src="/assets/doctor.jpg" alt="Dr. Tabraiz Wali Shah" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              </div>
               <div style={{ color: '#fff', fontWeight: 700, fontSize: 16, fontFamily: "'DM Serif Display',serif" }}>
                 Dr. Tabraiz W. Shah
               </div>

@@ -32,7 +32,10 @@ export default function About() {
               background: 'linear-gradient(135deg,#0D9488,#0B1D3A)',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               boxShadow: '0 0 0 4px rgba(13,148,136,0.35)',
-            }}><UserRound size={44} color="#fff" strokeWidth={1.5} /></div>
+              overflow: 'hidden',
+            }}>
+              <img src="/assets/doctor.jpg" alt="Dr. Tabraiz Wali Shah" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            </div>
 
             <h3 style={{ fontFamily: "'DM Serif Display',serif", color: '#fff', fontSize: 22, marginBottom: 6 }}>
               Dr. Tabraiz Wali Shah
@@ -100,6 +103,24 @@ export default function About() {
                   </div>
                 </div>
               ))}
+            </div>
+        </div>
+        
+        {/* Clinic Image */}
+        <div style={{ marginTop: 60 }}>
+          <div style={{ 
+            borderRadius: 24, overflow: 'hidden', height: 400, 
+            boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
+            position: 'relative'
+          }}>
+            <img src="/assets/clinic.png" alt="NeuroCore Neurosurgery Clinic" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            <div style={{
+              position: 'absolute', bottom: 0, left: 0, right: 0,
+              background: 'linear-gradient(to top, rgba(11,29,58,0.9), transparent)',
+              padding: '40px 32px', color: '#fff'
+            }}>
+              <h3 style={{ fontFamily: "'DM Serif Display',serif", fontSize: 24, marginBottom: 8 }}>Our State-of-the-Art Facilities</h3>
+              <p style={{ fontSize: 15, opacity: 0.9 }}>Equipped with advanced neuro-navigational and microsurgical technology for precision care.</p>
             </div>
           </div>
         </div>
