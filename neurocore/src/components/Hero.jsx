@@ -39,13 +39,23 @@ export default function Hero({ onBook }) {
             </div>
 
             {/* Doctor name */}
+            <h1 style={{
+              fontFamily: "'DM Serif Display', serif",
+              fontSize: 'clamp(2.2rem, 4vw, 3.4rem)',
+              color: '#ffffff', lineHeight: 1.15, marginBottom: 12,
+            }}>
               Dr. Tabraiz<br />Wali Shah
             </h1>
 
             {/* Subtitle */}
+            <p style={{
+              fontFamily: "'DM Serif Display', serif",
+              fontSize: 20, color: '#0D9488', fontStyle: 'italic', marginBottom: 18,
+            }}>
               Consultant Neurosurgeon
             </p>
 
+            <p style={{ color: '#94A3B8', fontSize: 15, lineHeight: 1.75, marginBottom: 24, maxWidth: 480 }}>
               Providing compassionate, evidence-based neurosurgical care. Specialized in treating complex brain and spine disorders. Currently serving as a Senior Registrar at Hayatabad Medical Complex (HMC) and offering visiting clinics in Chitral.
             </p>
 

@@ -16,6 +16,7 @@ export default function Footer() {
                 <div style={{ color: '#0D9488', fontSize: 11 }}>Neurosurgery Clinic</div>
               </div>
             </div>
+            <p style={{ color: '#475569', fontSize: 13, lineHeight: 1.7, maxWidth: 280 }}>
               Expert neurosurgical care in Peshawar & Chitral. Providing compassionate, 
               evidence-based treatment for brain and spine disorders.
             </p>
